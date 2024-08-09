@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="global.css">
+        <script src="/scripts/calendarRender.js"></script>
+        <script src="/scripts/formHandler.js"></script>
+    </head>
+    <body>
+        <header>
+            <button> adicionar evento </button>
+            <h1>Agenda pessoal</h1>
+        </header>
+        <div class="wrapper">
+            <div class="topo">
+                <div class="arrow left"></div>
+                <h1> Agosto </h1>
+                <div class="arrow right"></div>
+            </div>
+            <div class="calendar-wrapper">
+                <div class="weekdays">
+                    <div>dom</div>
+                    <div>seg</div>
+                    <div>ter</div>
+                    <div>qua</div>
+                    <div>qui</div>
+                    <div>sex</div>
+                    <div>sab</div>
+                </div>
+                <div class="calendar">
+                    <div class="day non-active">28</div>
+                    <div class="day non-active">29</div>
+                    <div class="day non-active">30</div>
+                    <div class="day non-active">31</div>
+                    <div class="day active">1
+                        <div class="events">3</div>
+                        <div class="meetings">4</div>
+                    </div>
+                    <div class="day active">2
+                        <div class="events">3</div>
+                        <div class="meetings">4</div>
+                    </div>
+                    <div class="day active">3</div>
+                    <div class="day ">4</div>
+                    <div class="day">5</div>
+                    <div class="day">6</div>
+                    <div class="day">7</div>
+                    <div class="day">8
+                        <div class="events">3</div>
+                        <div class="meetings">4</div>
+                    </div>
+                    <div class="day">9</div>
+                    <div class="day">10</div>
+                    <div class="day">11</div>
+                    <div class="day">12</div>
+                    <div class="day">13</div>
+                    <div class="day">14</div>
+                    <div class="day">15
+                        <div class="events">3</div>
+                        <div class="meetings">4</div>
+                    </div>
+                    <div class="day">16</div>
+                    <div class="day">17</div>
+                    <div class="day">18</div>
+                    <div class="day">19</div>
+                    <div class="day">20</div>
+                    <div class="day">21</div>
+                    <div class="day">22
+                        <div class="events">3</div>
+                        <div class="meetings">4</div>
+                    </div>
+                    <div class="day">23</div>
+                    <div class="day">24</div>
+                    <div class="day">25</div>
+                    <div class="day">26</div>
+                    <div class="day">27</div>
+                    <div class="day">28</div>
+                    <div class="day">29
+                        <div class="events">3</div>
+                        <div class="meetings">4</div>
+                    </div>
+                    <div class="day">30</div>
+                    <div class="day">31</div>
+                    <div class="day non-active">1</div>
+                    <div class="day non-active">2</div>
+                    <div class="non-active">3</div>
+                    <div class="non-active">4</div>
+                    <div class="non-active">5</div>
+                    <div class="non-active">6</div>
+                    <div class="non-active">7</div>
+                </div>
+                
+        </div>
+        <button class="adicionar" onclick="ativar()">
+            +
+        </button>
+
+        <div class="menu-backdrop" onclick="
+            document.querySelector('.menu-backdrop').classList.toggle('open');
+            document.querySelector('.event-menu').classList.toggle('open');">
+        </div>
+        <div class="event-menu">
+            <h1> Adicionar evento </h1>
+            <div class="section">
+                <label for="dia"> Data: </label>
+                <select name="ano" id="date-year">
+                </select>
+                <select name="mês" id="date-month">
+                    <option value="0">jan</option>
+                    <option value="1">fev</option>
+                    <option value="2">mar</option>
+                    <option value="3">abr</option>
+                    <option value="4">mai</option>
+                    <option value="5">jun</option>
+                    <option value="6">jul</option>
+                    <option value="7">ago</option>
+                    <option value="8">set</option>
+                    <option value="9">out</option>
+                    <option value="10">nov</option>
+                    <option value="11">dez</option>
+                </select>
+                <select name="dia" id="date-day">
+                </select>
+            </div>
+        </div>
+    </body>
+</html>
