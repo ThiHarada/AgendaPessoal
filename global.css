@@ -1,14 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@500&display=swap');
 
 :root {
-/** CSS DARK THEME PRIMARY COLORS */
- 
 --color-primary: #A2D2FF;
+--color-primary-300: #BDE0FE; 
 --color-secondary: #FFAFCC;
- 
- 
-/** CSS DARK THEME SURFACE COLORS */
- 
+--color-secondary-300: #FFC8DD;
+  
 --color-surface-100:  #121212;
 --color-surface-200:  #282828;
 --color-surface-300:  #3f3f3f;
@@ -16,19 +13,6 @@
 --color-surface-500:  #717171;
 --color-surface-600:  #8b8b8b;
 --color-surface-700: #e3e3e3;
- 
- 
-/** CSS DARK THEME MIXED SURFACE COLORS */
- 
---color-surface-mixed-100:  #29133f;
---color-surface-mixed-200:  #3f2952;
---color-surface-mixed-300:  #554166;
---color-surface-mixed-400:  #6b597a;
---color-surface-mixed-500:  #83738f;
---color-surface-mixed-600:  #9a8da5;
- 
- 
-/** EXAMPLES */
 }
 
 * {
@@ -36,6 +20,7 @@
     padding: 0;
     box-sizing: border-box;
     font-family: "Quicksand", sans-serif;
+    color:var(--color-surface-100)
 }
 
 body{
@@ -97,8 +82,8 @@ header {
     
 
     h1{
-        font-size: 5rem;
-        color: var(--color-surface-700)
+        font-size: 4.5rem;
+        color: var(--color-surface-700);
     }
 
     .topo{
@@ -125,6 +110,15 @@ header {
         .left{
             transform: rotate(45deg);
             margin-right: 5rem;
+        }
+
+        h1{
+            flex:0.9;
+            text-align: center;
+
+            span{
+                color: var(--color-surface-700);
+            }
         }
     }
 
@@ -163,7 +157,12 @@ header {
                 border-radius: 2rem;
                 padding: 0 0.8rem;
                 width: fit-content;
-                color:#121212
+                color:#121212;
+                display: flex;
+            }
+
+            span{
+                color:var(--color-surface-700)
             }
 
             .events{
@@ -227,7 +226,7 @@ header {
     opacity: 0.7;
 }
 
-.event-menu{
+.menu{
     width: 100%;
     height: 70dvh;
     bottom:0;
@@ -263,6 +262,10 @@ header {
 
         .form-wrapper{
             margin-top: 1.5rem
+        }
+
+        label{
+            color: var(--color-surface-700)
         }
 
         input{
@@ -305,6 +308,7 @@ header {
             background-color: var(--color-surface-400);
             color: var(--color-surface-700);
             resize: none;
+            margin-top: 1rem;
         }
 
         button{
@@ -328,7 +332,7 @@ header {
         }
 
         ol{
-            text-decoration: none;
+            list-style: none;
 
             li{
                 margin-top: 1rem;
@@ -348,10 +352,108 @@ header {
         border: 0;
         font-size: 3rem;
         background-image: linear-gradient(45deg, var(--color-primary), var(--color-secondary));
+        background-repeat: no-repeat;
+        background-color: var(--color-primary);
         border-radius: 5rem;
+        cursor:pointer;
+        transition: 0.2s;
+
+        &:hover{
+            background-position: 14rem;
+        }
+
+    }
+
+    .error{
+        font-size: 2rem;
+        text-align: center;
+        color:red;
+        margin-bottom: 1rem;
+        scale: 1 0;
+        height: 0;
+        transition: 0.2s
+    }
+
+    .showing{
+        scale: 1 1;
+        height: auto;
     }
 }
 
-.event-menu.open{
+.menu.open{
     translate: 0 0%;
+}
+
+.day{
+    div{
+        background-color: #575757;
+        margin: 1rem 0;
+        padding: 0rem;
+        border-radius: 3rem;
+
+        h2{
+            font-size: 3rem;
+            color: var(--color-surface-100);
+        }
+
+        h3{
+            font-size: 3rem;
+            color: var(--color-surface-200);
+        }
+
+        p{
+            font-size: 2.4rem;
+        }
+
+        h4{
+            font-size: 2.8rem;
+        }
+
+        ol{
+            list-style-type: none;
+
+            li{
+                font-size: 2.4rem;
+            }
+        }
+
+        .head{
+            margin:0;
+            border-radius: 2rem 2rem 0 0;
+            padding: 2rem;
+        }
+
+        .body{
+            margin: 0;
+            border-radius: 0 0 2rem 2rem;
+            padding: 2rem;
+            translate: 0 -1px;
+        }
+    }
+
+    .event{
+        .head{
+            background-color: var(--color-secondary);
+            h2::after{
+                content: '• Evento';
+            }
+        }
+
+        .body{
+            background-color: var(--color-secondary-300);
+        }
+    }
+
+    .meeting{
+        .head{
+            background-color: var(--color-primary);
+            h2::after{
+                content: '• Reunião';
+            }
+        }
+
+        .body{
+            background-color: var(--color-primary-300);
+        }
+    }
 }
