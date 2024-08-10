@@ -105,6 +105,22 @@ function changeMonth(changeAmmount){
     renderCalendar(selectedDate);
 }
 
+function removeEvent(element){
+    const index = element.parentNode.getAttribute("index");
+    const key = selectedDate.getFullYear() + '-' + selectedDate.getMonth() + '-' + selectedDate.getDate();
+    const eventList = JSON.parse(localStorage.getItem(key))
+    eventList.splice(index, 1)
+    localStorage.setItem(key, JSON.stringify(eventList));
+
+    const day = document.createElement("span");
+    day.innerHTML = currDate.getDate();
+    const param = document.createElement("div");
+    param.appendChild(day);
+    
+    renderDay(param);
+    renderCalendar(selectedDate)
+}
+
 function renderDay(dayObject){
     document.querySelector(".day").classList.remove("open");
 
@@ -123,9 +139,9 @@ function renderDay(dayObject){
     
         const searchKey = year + '-' + month + '-' + day;
         document.getElementById("day-name").innerHTML = day + ' de ' + fullMonthNames[month] + ' de ' + year;
-    
+        
         const data = JSON.parse(localStorage.getItem(searchKey));
-        if (data === null){
+        if (data === null || data.length === 0){
             eventList.innerHTML = '<h2 class="message">Sem nada nesse dia, que bom!</h2>'
             return;
         }
@@ -136,10 +152,22 @@ function renderDay(dayObject){
             const head = document.createElement("div");
             head.classList.add("head");
     
+            const wrapper = document.createElement("div")
+            wrapper.setAttribute("index", i);
+
             const time = document.createElement("h2");
             time.innerHTML = ('0' + data[i]["startHour"]).slice(-2) + ':' + ('0' + data[i]["startMinute"]).slice(-2) + ' - ' + ('0' + data[i]["endHour"]).slice(-2) + ":" + ('0' + data[i]["endMinute"]).slice(-2);
             console.log(time.innerHTML);
-            head.appendChild(time)
+            
+            wrapper.appendChild(time)
+            const remove = document.createElement("button");
+            remove.setAttribute("onclick", "removeEvent(this)")
+            remove.innerHTML = "X";
+
+            wrapper.appendChild(remove)
+
+
+            head.appendChild(wrapper)
             const name = document.createElement("h3");
             name.innerHTML = data[i]["name"];
             head.appendChild(name)
@@ -170,6 +198,7 @@ function renderDay(dayObject){
             eventBox.appendChild(body)
     
             eventList.appendChild(eventBox);
+
         }
     },75)
 }

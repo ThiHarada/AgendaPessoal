@@ -441,6 +441,23 @@ header {
             margin:0;
             border-radius: 1rem 1rem 0 0;
             padding: 1rem;
+
+            div{
+                display: flex;
+
+                h2{
+                    flex: 3;
+                }
+
+                button{
+                    border:0;
+                    background-color: transparent;
+                    font-weight: bold;
+                    font-size: 1.5rem;
+                    cursor: pointer;
+                    color: var(--color-surface-100)
+                }
+            }
         }
 
         .body{
