@@ -1,6 +1,9 @@
+// localStorage.clear()
+
 function pullMenu() {
     document.querySelector('.menu-backdrop').classList.add('open');
     document.querySelector('.event').classList.add('open');
+    document.querySelector('.day').classList.remove('open')
     let years = "";
     for(let i = currDate.getFullYear(); i < currDate.getFullYear() + 10; i++){
         years += '<option value="' + i + '">' + i + '</option>'
@@ -14,7 +17,7 @@ function pullMenu() {
     }
     document.getElementById("date-day").innerHTML = days;
     daySelector = document.getElementById("date-day")
-    daySelector.value = currDate.getDate();
+    daySelector.value = selectedDate.getDate();
 
     document.getElementById("date-hour-start").value = 0;
     document.getElementById("date-minute-start").value = 0;
@@ -75,7 +78,9 @@ function registerEvent(){
     const endHour = document.getElementById("date-hour-end").value;
     const endMinute = document.getElementById("date-minute-end").value;
 
-    if (endHour * 60 + endMinute < startHour * 60 + startMinute) {
+    if (endHour*60 + parseInt(endMinute) < startHour*60 + parseInt(startMinute)) {
+        console.log(endHour * 60 + parseInt(endMinute));
+        console.log(startHour * 60 + parseInt(startMinute));
         const errorMessage = document.querySelector(".error")
         errorMessage.innerHTML = "Um evento não pode terminar antes de começar";
         errorMessage.classList.add("showing")
@@ -96,5 +101,30 @@ function registerEvent(){
     const date = new Date(eventYear, eventMonth, eventDay);
 
     const event = members.length === 0 ? new Evento(date, startHour, startMinute, endHour, endMinute, name, desc) : new Meeting(date, startHour, startMinute, endHour, endMinute, name, desc, memberArray)
-    console.log(event.toLocalStorage());
+    const data = event.toLocalStorage();
+
+    const prevData = JSON.parse(localStorage.getItem(data[0]))
+    if(prevData !== null){
+        const newEvent = JSON.parse(data[1])
+
+        prevData.push(newEvent[0]);
+
+        prevData.sort((a,b) => {
+            return (a["startHour"] * 60 + parseInt(a["startMinute"])) - (b["startHour"] * 60 + parseInt(b["startMinute"]));
+        })
+
+        localStorage.setItem(data[0], JSON.stringify(prevData));
+    } else {
+        localStorage.setItem(data[0], data[1])
+    }
+
+    document.querySelector('.menu-backdrop').classList.remove('open');
+    document.querySelector('.event').classList.remove('open');
+    renderCalendar(currDate);
+
+    const day = document.createElement("span");
+    day.innerHTML = selectedDate.getDate();
+    const param = document.createElement("div");
+    param.appendChild(day);
+    renderDay(param);
 }

@@ -38,19 +38,27 @@ header {
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 1rem;
+    padding: 0.5rem;
     z-index: 11;
 
     button{
         border: 0;
-        padding: 2rem;
-        font-size: 2rem;
+        padding: 0.5rem;
+        font-size: 1rem;
         border-radius: 3rem;
+        background-color: var(--color-primary);
         background-image: linear-gradient(45deg, var(--color-primary), var(--color-secondary));
-        color: var(--color-surface-700);
+        background-repeat: no-repeat;
+        color: var(--color-surface-100);
         font-weight: bold;
-        letter-spacing: 0.4rem;
-        display:none
+        letter-spacing: 0.2rem;
+        display:none;
+        position: relative;
+        transition: background-position 0.5s;
+
+        &:hover{
+            background-position: 3rem 0 ;
+        }
     }
 
     h1{
@@ -58,7 +66,9 @@ header {
         color:transparent;
         background-clip:text;
         font-weight: bold;
-        font-size: 3rem;
+        font-size: 1.5rem;
+        flex:3;
+        text-align: center;
     }
 }
 
@@ -68,7 +78,7 @@ header {
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    padding-top:3rem;
+    padding-top:1.5rem;
     gap: 2rem;
     flex:1;
 
@@ -82,7 +92,7 @@ header {
     
 
     h1{
-        font-size: 4.5rem;
+        font-size: 1.8rem;
         color: var(--color-surface-700);
     }
 
@@ -95,21 +105,21 @@ header {
         width: 100%;
 
         .arrow{
-            width: 4rem;
-            height: 4rem;
-            border-left: solid var(--color-surface-700) 1rem;
-            border-bottom: solid var(--color-surface-700) 1rem;
+            width: 1.8rem;
+            height: 1.8rem;
+            border-left: solid var(--color-surface-700) 0.5rem;
+            border-bottom: solid var(--color-surface-700) 0.5rem;
             cursor:pointer;
         }
 
         .right{
             transform: rotate(-135deg);
-            margin-left: 5rem;
+            margin-left: 2rem;
         }
 
         .left{
             transform: rotate(45deg);
-            margin-right: 5rem;
+            margin-right: 2rem;
         }
 
         h1{
@@ -129,7 +139,7 @@ header {
 
         div{
             text-align: center;
-            font-size: 2rem;
+            font-size: 1rem;
             background-color: var(--color-surface-500);
         }
     }
@@ -137,15 +147,15 @@ header {
     .calendar{
         display: grid;
         grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+        grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr;
         width: 100%;
         /* min-height: 100%; */
         flex: 1;
 
         div{
-            /* min-height: 15dvh; */
             border: solid 2px var(--color-surface-500);
-            padding:0.5rem;
-            font-size: 2rem;
+            padding:0.3rem;
+            font-size: 1rem;
             color: var(--color-surface-700);
             display: flex;
             flex-direction: column;
@@ -153,9 +163,9 @@ header {
 
             div{
                 border: 0;
-                margin:0.5rem;
+                margin:0.2rem 0;
                 border-radius: 2rem;
-                padding: 0 0.8rem;
+                padding: 0 0.4rem;
                 width: fit-content;
                 color:#121212;
                 display: flex;
@@ -166,11 +176,11 @@ header {
             }
 
             .events{
-                background-color: var(--color-primary);
+                background-color: var(--color-secondary);
             }
 
             .meetings{
-                background-color: var(--color-secondary);
+                background-color: var(--color-primary);
             }
         }
 
@@ -194,11 +204,11 @@ header {
 .adicionar{
     position: fixed;
     z-index: 10;
-    bottom: 3rem;
-    right: 3rem;
-    font-size: 6rem;
+    bottom: 1rem;
+    right: 1rem;
+    font-size: 3rem;
     border:0;
-    padding: 0 1.5rem;
+    padding: 0 0.7rem;
     border-radius: 1rem;
     background-image: linear-gradient(45deg, var(--color-primary), var(--color-secondary));
     color: var(--color-surface-200);
@@ -207,8 +217,8 @@ header {
     transition: 0.2s;
 
     &:hover{
-        font-size: 6.5rem;
-        padding: 0 1.7rem
+        font-size: 3.3rem;
+        padding: 0 0.8rem
     }  
 }
 
@@ -222,7 +232,7 @@ header {
 }
 
 .menu-backdrop.open{
-    height: 100dvh;
+    height: 150dvh;
     opacity: 0.7;
 }
 
@@ -236,7 +246,7 @@ header {
     box-shadow: 0 0 5rem var(--color-surface-100);
     translate: 0 100%;
     transition: translate 0.2s;
-    padding: 1rem;
+    padding: 0.5rem;
 
     overflow-y: scroll;
 
@@ -244,24 +254,25 @@ header {
     flex-direction: column;
 
     h1{
-        font-size: 4rem;
+        font-size: 1.6rem;
         text-align: center;
         width: 100%;
-        border-bottom: solid 0.2rem var(--color-surface-500);
-        padding-bottom: 1rem;
+        border-bottom: solid 0.1rem var(--color-surface-500);
+        padding-bottom: 0.5rem;
     }
 
     .section{
-        margin-top: 2rem;
-        font-size: 3rem;
+        margin-top: 0.5rem;
+        font-size: 1.3rem;
         color: var(--color-surface-700);
-        border-bottom: solid 0.2rem var(--color-surface-600);
-        padding-bottom: 2rem;
+        border-bottom: solid 0.1rem var(--color-surface-600);
+        padding-bottom: 0.5rem;
         display:flex;
         flex-direction: column;
 
         .form-wrapper{
-            margin-top: 1.5rem
+            margin-top: 0.5rem;
+            color: var(--color-surface-700); 
         }
 
         label{
@@ -269,12 +280,12 @@ header {
         }
 
         input{
-            font-size: 3rem;
+            font-size: 1.3rem;
             border-radius: 2rem;
             border:0;
             background-color: var(--color-surface-400);
             color:var(--color-surface-700);
-            padding: 0.5rem 1rem;
+            padding: 0.2rem 0.5rem;
         }
 
         .ano{
@@ -285,9 +296,9 @@ header {
         }
 
         select{
-            font-size: 3rem;
+            font-size: 1rem;
             border: 0;
-            border-radius: 2rem;
+            border-radius: 1rem;
             padding: 0.5rem;
             text-align: center;
             background-color: var(--color-surface-400);
@@ -295,30 +306,32 @@ header {
 
             option{
                 font-size: 1rem;
+                background-color: var(--color-surface-300);
+                color: var(--color-surface-700)
             }
         }
 
         textarea{
             display: block;
-            font-size: 3rem;
+            font-size: 1.3rem;
             width:100%;
-            padding: 0.7rem;
-            border-radius:2rem;
+            padding: 0.4rem;
+            border-radius:1rem;
             border:0;
             background-color: var(--color-surface-400);
             color: var(--color-surface-700);
             resize: none;
-            margin-top: 1rem;
+            margin-top: 0.5rem;
         }
 
         button{
             border: 0;
-            font-size: 3rem;
+            font-size: 1.3rem;
             background-color: var(--color-surface-300);
             color: (--color-surface-500);
-            margin-top: 2rem;
+            margin-top: 1rem;
             cursor: pointer;
-            padding: 0 1.5rem;
+            padding: 0 0.8rem;
             border-radius: 5rem;
             transition: background-color 0.2s;
 
@@ -335,7 +348,7 @@ header {
             list-style: none;
 
             li{
-                margin-top: 1rem;
+                margin: 0;
                 
                 input{
                     margin-right: 1rem;
@@ -350,7 +363,7 @@ header {
 
     .submit-button{
         border: 0;
-        font-size: 3rem;
+        font-size: 1.4rem;
         background-image: linear-gradient(45deg, var(--color-primary), var(--color-secondary));
         background-repeat: no-repeat;
         background-color: var(--color-primary);
@@ -385,75 +398,166 @@ header {
 }
 
 .day{
+
     div{
-        background-color: #575757;
-        margin: 1rem 0;
+        background-color: transparent;
+        margin: 0.5rem 0;
         padding: 0rem;
-        border-radius: 3rem;
 
         h2{
-            font-size: 3rem;
+            font-size: 1.3rem;
             color: var(--color-surface-100);
         }
 
         h3{
-            font-size: 3rem;
+            font-size: 1.2rem;
             color: var(--color-surface-200);
         }
 
         p{
-            font-size: 2.4rem;
-        }
-
-        h4{
-            font-size: 2.8rem;
+            font-size: 1.1rem;
         }
 
         ol{
             list-style-type: none;
+            margin-top: 0.3rem;
 
             li{
-                font-size: 2.4rem;
+                font-size: 1.1rem;
+
+                &::before{
+                    content: '• ';
+                }
+            }
+
+            &::before{
+                content: 'Participantes: ';
+                font-size: 1.1rem;
+                font-weight: bold;
             }
         }
 
         .head{
             margin:0;
-            border-radius: 2rem 2rem 0 0;
-            padding: 2rem;
+            border-radius: 1rem 1rem 0 0;
+            padding: 1rem;
         }
 
         .body{
             margin: 0;
-            border-radius: 0 0 2rem 2rem;
-            padding: 2rem;
+            border-radius: 0 0 1rem 1rem;
+            padding: 1rem;
             translate: 0 -1px;
         }
     }
+    .events-wrapper{
+        padding: 0;
+        margin: 0;
+        background-color: transparent;
 
-    .event{
-        .head{
-            background-color: var(--color-secondary);
-            h2::after{
-                content: '• Evento';
+        .event{
+            .head{
+                background-color: var(--color-secondary);
+                h2::after{
+                    content: ' • Evento';
+                }
+            }
+
+            .body{
+                background-color: var(--color-secondary-300);
             }
         }
 
-        .body{
-            background-color: var(--color-secondary-300);
+        .meeting{
+            .head{
+                background-color: var(--color-primary);
+                h2::after{
+                    content: ' • Reunião';
+                }
+            }
+
+            .body{
+                background-color: var(--color-primary-300);
+            }
         }
     }
 
-    .meeting{
-        .head{
-            background-color: var(--color-primary);
-            h2::after{
-                content: '• Reunião';
+    .message{
+        text-align: center;
+        margin-top: 20%;
+        color: var(--color-surface-600);
+        font-size: 2rem;
+    }
+}
+
+@media screen and (max-height:710px){
+    .calendar{
+        div{
+            
+            span{
+                font-size: 0.8rem;
             }
         }
+    }
 
-        .body{
-            background-color: var(--color-primary-300);
+    .events{
+        color:red;
+    }
+}
+
+@media screen and (min-width:600px) {
+    .wrapper{
+        h1{
+            font-size: 3rem;
         }
+
+        .topo{
+            .arrow{
+                width: 3rem;
+                height: 3rem;
+                border-width: 0.8rem;
+            }
+        }
+    }
+}
+
+@media (orientation: landscape){
+    .adicionar {
+        display: none;
+    }
+
+    header{
+
+        z-index: 12;
+        button{
+            display: block;
+        }
+    }
+
+    .menu{
+        height: 100dvh;
+        width: 40vw;
+        right: 0;
+        translate: 150% 0;
+        z-index: 10;
+        box-shadow: 0 0 2rem var(--color-surface-100);
+        padding-top: 4rem;
+
+        textarea{
+            height: 10rem;
+        }
+    }
+
+    .open{
+        z-index: 11;
+    }
+
+    .menu-backdrop{
+        display: none;
+    }
+
+    .wrapper{
+        padding: 1rem;
+        width: 60vw;
     }
 }

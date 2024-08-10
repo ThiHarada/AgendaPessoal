@@ -59,7 +59,7 @@ class Evento {
     toLocalStorage(){
         return [
             this.date.getFullYear() + '-' + this.date.getMonth() + '-' + this.date.getDate(),
-            JSON.stringify({"startHour" : this.startHour, "endHour" : this.endHour, "startMinute" : this.startMinute, "endMinute" : this.endMinute, "name" : this.name, "description" : this.description})
+            JSON.stringify([{"type" : 0, "startHour" : this.startHour, "endHour" : this.endHour, "startMinute" : this.startMinute, "endMinute" : this.endMinute, "name" : this.name, "description" : this.description}])
         ]
     }
 }
@@ -77,7 +77,7 @@ class Meeting extends Evento {
     toLocalStorage(){
         return [
             this.date.getFullYear() + '-' + this.date.getMonth() + '-' + this.date.getDate(),
-            JSON.stringify({"startHour" : this.startHour, "endHour" : this.endHour, "startMinute" : this.startMinute, "endMinute" : this.endMinute, "name" : this.name, "description" : this.description, "members" : this.members})
+            JSON.stringify([{"type" : 1, "startHour" : this.startHour, "endHour" : this.endHour, "startMinute" : this.startMinute, "endMinute" : this.endMinute, "name" : this.name, "description" : this.description, "members" : this.members}])
         ]
     }
 }
