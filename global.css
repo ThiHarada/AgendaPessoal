@@ -239,6 +239,8 @@ header {
     transition: translate 0.2s;
     padding: 1rem;
 
+    overflow-y: scroll;
+
     display: flex;
     flex-direction: column;
 
@@ -246,7 +248,7 @@ header {
         font-size: 4rem;
         text-align: center;
         width: 100%;
-        border-bottom: solid 0.1rem var(--color-surface-500);
+        border-bottom: solid 0.2rem var(--color-surface-500);
         padding-bottom: 1rem;
     }
 
@@ -254,18 +256,22 @@ header {
         margin-top: 2rem;
         font-size: 3rem;
         color: var(--color-surface-700);
+        border-bottom: solid 0.2rem var(--color-surface-600);
+        padding-bottom: 2rem;
+        display:flex;
+        flex-direction: column;
 
-        label{
-
+        .form-wrapper{
+            margin-top: 1.5rem
         }
 
         input{
             font-size: 3rem;
-            border-radius: 5rem;
+            border-radius: 2rem;
             border:0;
             background-color: var(--color-surface-400);
             color:var(--color-surface-700);
-            padding: 0.5rem;
+            padding: 0.5rem 1rem;
         }
 
         .ano{
@@ -278,15 +284,71 @@ header {
         select{
             font-size: 3rem;
             border: 0;
-            border-radius: 5rem;
+            border-radius: 2rem;
             padding: 0.5rem;
             text-align: center;
-            background-color: red;
+            background-color: var(--color-surface-400);
+            color: var(--color-surface-700);
 
             option{
                 font-size: 1rem;
             }
         }
+
+        textarea{
+            display: block;
+            font-size: 3rem;
+            width:100%;
+            padding: 0.7rem;
+            border-radius:2rem;
+            border:0;
+            background-color: var(--color-surface-400);
+            color: var(--color-surface-700);
+            resize: none;
+        }
+
+        button{
+            border: 0;
+            font-size: 3rem;
+            background-color: var(--color-surface-300);
+            color: (--color-surface-500);
+            margin-top: 2rem;
+            cursor: pointer;
+            padding: 0 1.5rem;
+            border-radius: 5rem;
+            transition: background-color 0.2s;
+
+            &:hover{
+                background-color: var(--color-surface-400);
+            }
+            
+            p{
+                color: var(--color-surface-500  )
+            }
+        }
+
+        ol{
+            text-decoration: none;
+
+            li{
+                margin-top: 1rem;
+                
+                input{
+                    margin-right: 1rem;
+                }
+            }
+        }
+    }
+
+    .last{
+        border: 0;
+    }
+
+    .submit-button{
+        border: 0;
+        font-size: 3rem;
+        background-image: linear-gradient(45deg, var(--color-primary), var(--color-secondary));
+        border-radius: 5rem;
     }
 }
 
